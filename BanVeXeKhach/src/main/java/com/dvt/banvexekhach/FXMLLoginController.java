@@ -50,33 +50,31 @@ public class FXMLLoginController implements Initializable {
     
     public void loginHandler(ActionEvent evt) throws NoSuchAlgorithmException, IOException {
         FXMLLoader fxmlAdminLoader = new FXMLLoader(App.class.getResource("FXMLAdmin.fxml"));
-        FXMLLoader fxmlEmployeeLoader = new FXMLLoader(App.class.getResource("FXMLEmployee"));
+        FXMLLoader fxmlEmployeeLoader = new FXMLLoader(App.class.getResource("FXMLEmployee.fxml"));
         try {
             String username = txtUsername.getText();
             String password = txtPassword.getText();
             User user = S.getUserByUsername(username);
-            if (user != null) {
-                password = DigestUtils.md5Hex(password).toUpperCase();
-                if (user.getUsername().contains(username) && user.getPassword().contains(password)) {
-                    if (user.getUserRole() == true) {
-                        Scene scene = new Scene(fxmlAdminLoader.load());
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.setTitle("Admin");
-                        stage.show();
-                    }
-                    else {
-                        Scene scene = new Scene(fxmlEmployeeLoader.load());
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.setTitle("Employee");
-                        stage.show();
-                    }
+            if (S.checkAccount(username, password)) {
+                if (user.getUserRole()) {
+                    Scene scene = new Scene(fxmlAdminLoader.load());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Admin");
+                    stage.show();
                 }
                 else {
-                    Utils.getBox("Tên đăng nhập hoặc mật khẩu chưa chính xác!!", Alert.AlertType.WARNING).show();
+                    Scene scene = new Scene(fxmlEmployeeLoader.load());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Employee");
+                    stage.show();
                 }
             }
+            else {
+                Utils.getBox("Tài khoản hoặc mật khẩu chưa chính xác!!!", Alert.AlertType.WARNING).show();
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

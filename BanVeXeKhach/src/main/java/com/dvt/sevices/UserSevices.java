@@ -12,6 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -67,6 +70,22 @@ public class UserSevices {
                 return u;
         }
         return null;
+    }
+    
+    public boolean checkAccount(String username, String password) {
+        User user;
+        try {
+            user = this.getUserByUsername(username);
+            if (user.getName() != null) {
+                return (DigestUtils.md5Hex(password).toUpperCase()).contains(user.getPassword());
+            }
+            else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserSevices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }
 
