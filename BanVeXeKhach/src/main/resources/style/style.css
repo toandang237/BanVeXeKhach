@@ -1,0 +1,36 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+Text.title {
+    -fx-font-size: 36;
+    -fx-fill: red;
+    -fx-stroke-width: 3;
+    -fx-stroke: gold;
+}
+
+VBox {
+    -fx-background-color: lightblue;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-alignment: top-center;
+    -fx-border-radius: 5;
+}
+
+Hbox {
+    -fx-alignment: CENTER;
+}
+    
+Text.text {
+    -fx-padding: 10;
+    -fx-pref-width: 100;
+}
+
+.txtUsername, .txtPassword {
+    -fx-pref-width: 200;
+    -fx-margin-left: 10;    
+}
+
+.mainFxmlClass {
+
+}

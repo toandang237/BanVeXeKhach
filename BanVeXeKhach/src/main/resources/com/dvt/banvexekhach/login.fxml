@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="460.0" stylesheets="@../../../style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dvt.banvexekhach.FXMLLoginController">
+   <children>
+      <Text fx:id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="ĐĂNG NHẬP">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.410526305437088" green="0.16116958856582642" blue="0.16116958856582642" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Text>
+      <HBox prefHeight="49.0" prefWidth="406.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Tên đăng nhập" wrappingWidth="100.21614074707031" />
+            <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="141.0" promptText="Nhập tên đăng nhập..." styleClass="txtUsername" text="d" />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="73.0" prefHeight="58.0" prefWidth="406.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Mật khẩu" wrappingWidth="100.85394287109375" />
+            <TextField fx:id="txtPassword" accessibleRole="PASSWORD_FIELD" prefHeight="26.0" prefWidth="155.0" promptText="Nhập mật khẩu..." styleClass="txtPassword" text="d" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#loginHandler" prefHeight="30.0" prefWidth="98.0" text="Đăng nhập" />
+   </children>
+</VBox>
