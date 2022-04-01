@@ -9,7 +9,6 @@ import com.dvt.sevices.UserSevices;
 import com.dvt.utils.Utils;
 import java.io.IOException;
 import java.net.URL;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -24,7 +23,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.apache.commons.codec.digest.DigestUtils;
 
 
 /**
@@ -53,11 +51,12 @@ public class FXMLLoginController implements Initializable {
     public void loginHandler(ActionEvent evt) throws NoSuchAlgorithmException, IOException {
         FXMLLoader fxmlAdminLoader = new FXMLLoader(App.class.getResource("FXMLAdmin.fxml"));
         FXMLLoader fxmlEmployeeLoader = new FXMLLoader(App.class.getResource("FXMLEmployee.fxml"));
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
         try {
-            if (txtUsername != null && txtPassword != null) {
+            if (username != "" && password != "") {
                 
-                String username = txtUsername.getText();
-                String password = txtPassword.getText();
+                
                 User user = S.getUserByUsername(username);
                 if (S.checkAccount(username, password)) {
                     if (user.getUserRole()) {

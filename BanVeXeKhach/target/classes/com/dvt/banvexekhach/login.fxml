@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="VBoxMain" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="460.0" stylesheets="@../../../style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dvt.banvexekhach.FXMLLoginController">
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="460.0" stylesheets="@../../../style/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dvt.banvexekhach.FXMLLoginController">
    <children>
       <Text fx:id="txtTitle" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="ĐĂNG NHẬP">
          <stroke>
@@ -33,13 +33,13 @@
       <HBox prefHeight="49.0" prefWidth="406.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Tên đăng nhập" wrappingWidth="100.21614074707031" />
-            <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="141.0" promptText="Nhập tên đăng nhập..." styleClass="txtUsername" />
+            <TextField fx:id="txtUsername" prefHeight="26.0" prefWidth="141.0" promptText="Nhập tên đăng nhập..." styleClass="txtUsername" text="toan" />
          </children>
       </HBox>
       <HBox layoutX="20.0" layoutY="73.0" prefHeight="44.0" prefWidth="439.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Mật khẩu" wrappingWidth="100.85394287109375" />
-            <PasswordField promptText="Mật khẩu..." styleClass="txtPassword" />
+            <PasswordField fx:id="txtPassword" promptText="Mật khẩu..." styleClass="txtPassword" text="DeftBlog" />
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#loginHandler" prefHeight="30.0" prefWidth="98.0" styleClass="login" text="Đăng nhập" />
