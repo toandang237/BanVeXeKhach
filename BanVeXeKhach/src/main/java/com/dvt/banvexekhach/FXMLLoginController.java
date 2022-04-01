@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -35,6 +36,7 @@ public class FXMLLoginController implements Initializable {
     private static final UserSevices S = new UserSevices();
     @FXML private TextField txtUsername;
     @FXML private TextField txtPassword;
+    @FXML private VBox VBoxMain;
     /**
      * Initializes the controller class.
      */
@@ -52,27 +54,33 @@ public class FXMLLoginController implements Initializable {
         FXMLLoader fxmlAdminLoader = new FXMLLoader(App.class.getResource("FXMLAdmin.fxml"));
         FXMLLoader fxmlEmployeeLoader = new FXMLLoader(App.class.getResource("FXMLEmployee.fxml"));
         try {
-            String username = txtUsername.getText();
-            String password = txtPassword.getText();
-            User user = S.getUserByUsername(username);
-            if (S.checkAccount(username, password)) {
-                if (user.getUserRole()) {
-                    Scene scene = new Scene(fxmlAdminLoader.load());
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.setTitle("Admin");
-                    stage.show();
+            if (txtUsername != null && txtPassword != null) {
+                
+                String username = txtUsername.getText();
+                String password = txtPassword.getText();
+                User user = S.getUserByUsername(username);
+                if (S.checkAccount(username, password)) {
+                    if (user.getUserRole()) {
+                        Scene scene = new Scene(fxmlAdminLoader.load());
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setTitle("Admin");
+                        stage.show();
+                    }
+                    else {
+                        Scene scene = new Scene(fxmlEmployeeLoader.load());
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setTitle("Employee");
+                        stage.show();
+                    }
                 }
                 else {
-                    Scene scene = new Scene(fxmlEmployeeLoader.load());
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.setTitle("Employee");
-                    stage.show();
+                    Utils.getBox("Tài khoản hoặc mật khẩu chưa chính xác!!!", Alert.AlertType.WARNING).show();
                 }
             }
             else {
-                Utils.getBox("Tài khoản hoặc mật khẩu chưa chính xác!!!", Alert.AlertType.WARNING).show();
+                Utils.getBox("Vui lòng nhập đầy đủ thông tin!!!", Alert.AlertType.WARNING).show();
             }
             
         } catch (SQLException ex) {

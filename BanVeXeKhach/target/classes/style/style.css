@@ -3,18 +3,21 @@
  */
 
 Text.title {
-    -fx-font-size: 36;
+    -fx-font-size: 25;
     -fx-fill: red;
     -fx-stroke-width: 3;
     -fx-stroke: gold;
+    -fx-font-family: tahoma;
 }
 
 VBox {
     -fx-background-color: lightblue;
     -fx-padding: 10;
     -fx-spacing: 10;
-    -fx-alignment: top-center;
-    -fx-border-radius: 5;
+    -fx-alignment: TOP_CENTER;
+    -fx-spacing: 15;
+    -fx-pref-width: 300;
+    -fx-pref-height: 200;
 }
 
 Hbox {
@@ -24,6 +27,11 @@ Hbox {
 Text.text {
     -fx-padding: 10;
     -fx-pref-width: 100;
+    -fx-fill: darkblue;
+    -fx-stroke: background;
+    -fx-stroke-width: 2;
+    -fx-font-style: oblique;
+    -fx-font-size: 14;
 }
 
 .txtUsername, .txtPassword {
@@ -31,6 +39,16 @@ Text.text {
     -fx-margin-left: 10;    
 }
 
-.mainFxmlClass {
+Button {
+    -fx-background-color: darkblue;
+    -fx-text-fill: white;
+    -fx-border-radius: 15;
+    -fx-cursor: hand;
+}
 
+Button.login {
+    -fx-alignment: CENTER;
+}
+
+.mainFxmlClass {
 }

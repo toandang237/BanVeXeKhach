@@ -6,7 +6,9 @@ package com.dvt.banvexekhach;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
 
 /**
  * FXML Controller class
@@ -14,6 +16,7 @@ import javafx.fxml.Initializable;
  * @author pc
  */
 public class FXMLAdminController implements Initializable {
+    @FXML private MenuBar mbAdmin;
 
     /**
      * Initializes the controller class.
