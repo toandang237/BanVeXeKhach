@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -35,6 +36,8 @@ public class FXMLLoginController implements Initializable {
     @FXML private TextField txtUsername;
     @FXML private TextField txtPassword;
     @FXML private VBox VBoxMain;
+    @FXML private Button btnLogin;
+    @FXML private Button btnExit;
     /**
      * Initializes the controller class.
      */
@@ -60,18 +63,14 @@ public class FXMLLoginController implements Initializable {
                 User user = S.getUserByUsername(username);
                 if (S.checkAccount(username, password)) {
                     if (user.getUserRole()) {
-                        Scene scene = new Scene(fxmlAdminLoader.load());
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.setTitle("Admin");
-                        stage.show();
+                        Utils.showForm(fxmlAdminLoader, "Admin");
+                        Stage stageCurrent = (Stage) btnLogin.getScene().getWindow();
+                        stageCurrent.close();
                     }
                     else {
-                        Scene scene = new Scene(fxmlEmployeeLoader.load());
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.setTitle("Employee");
-                        stage.show();
+                        Utils.showForm(fxmlAdminLoader, "Nhân viên");
+                        Stage stageCurrent = (Stage) btnLogin.getScene().getWindow();
+                        stageCurrent.close();
                     }
                 }
                 else {
@@ -87,5 +86,6 @@ public class FXMLLoginController implements Initializable {
         }
             
     }
+    
     
 }

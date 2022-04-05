@@ -50,5 +50,14 @@ Button.login {
     -fx-alignment: CENTER;
 }
 
+Label.lbTuyenDi {
+    -fx-alignment: CENTER;
+    -fx-font-size: 26;
+    -fx-pref-width: 600;
+    -fx-font-family: arial;
+    -fx-text-fill: darkslategray;
+    -fx-background-color: blanchedalmond;
+}
+
 .mainFxmlClass {
 }

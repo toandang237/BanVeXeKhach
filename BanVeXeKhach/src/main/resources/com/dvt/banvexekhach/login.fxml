@@ -42,6 +42,11 @@
             <PasswordField fx:id="txtPassword" promptText="Mật khẩu..." styleClass="txtPassword" text="DeftBlog" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#loginHandler" prefHeight="30.0" prefWidth="98.0" styleClass="login" text="Đăng nhập" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnLogin" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loginHandler" prefHeight="30.0" prefWidth="98.0" styleClass="login" text="Đăng nhập" />
+            <Button mnemonicParsing="false" onAction="#loginHandler" prefHeight="30.0" prefWidth="98.0" styleClass="login" text="Thoát" />
+         </children>
+      </HBox>
    </children>
 </VBox>

@@ -4,7 +4,11 @@
  */
 package com.dvt.utils;
 
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 /**
  *
@@ -16,4 +20,13 @@ public class Utils {
         alert.setContentText(content);
         return alert;
     }
+    
+    public static void showForm(FXMLLoader loader, String title) throws IOException {
+        Stage stage = new Stage();
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+        stage.setTitle(title);
+        stage.show();
+    }
+    
 }
